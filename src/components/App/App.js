@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import './App.css';
-import axios from 'axios';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import Admin from '../Admin/Admin';
+import Projects from '../Projects/Projects';
+
 
 class App extends Component {
-  // Renders the entire app on the DOM
-  handleClick = () => {
-    axios.get('api/project').then( response => {
-      console.log(response);
-    })
-  }
 
   render() {
     return (
-      <div className="App">
-        <p>Empty Page</p>
-        <button onClick={this.handleClick}>test</button>
-      </div>
+      <Router>
+        <div>
+          <Route path='/' exact component={Projects} />
+          <Route path='/admin' component={Admin} />
+        </div>
+      </Router>
     );
   }
 }
