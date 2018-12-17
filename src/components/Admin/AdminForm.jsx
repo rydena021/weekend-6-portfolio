@@ -9,6 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import AdminSnackbar from './AdminSnackbar';
 
 const styles = theme => ({
   root: {
@@ -38,7 +39,7 @@ const emptyProjectObject = {
   thumbnail: '',
   website_url: '',
   github_url: '',
-  date_completed: '',
+  date_completed: null,
   tag_id: 1,
 };
 
@@ -48,12 +49,14 @@ class AdminForm extends React.Component {
   addNewProject = event => {
     event.preventDefault();
     this.props.dispatch({ type: 'ADD_PROJECT', payload: this.state })
+    this.props.dispatch({ type: 'SHOW_ADMIN_SNACK'})
     this.clearProjectFields();
   }
 
   clearProjectFields = () => {
     this.setState(emptyProjectObject);
   }
+
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_TAGS' });
   }
@@ -69,7 +72,8 @@ class AdminForm extends React.Component {
     let tagsHtml = this.props.tags.map((tag, i) => <MenuItem key={i} value={tag.id}>{tag.name}</MenuItem>);
 
     return (
-      <form onSubmit={this.addNewProject} className={classes.root} autoComplete="off">
+      <div>
+        <form onSubmit={this.addNewProject} className={classes.root} autoComplete="off">
           <TextField
             id="standard-name"
             label="Name"
@@ -78,78 +82,79 @@ class AdminForm extends React.Component {
             value={this.state.name}
             onChange={this.handleChange}
             margin="normal"
-          required
-          />
-        <TextField
-          id="standard-description"
-          label="Description"
-          name="description"
-          className={classes.textField}
-          value={this.state.description}
-          onChange={this.handleChange}
-          margin="normal"
-          required
-        />
-        <TextField
-          id="standard-website_url"
-          label="Website URL"
-          name="website_url"
-          className={classes.textField}
-          value={this.state.website_url}
-          onChange={this.handleChange}
-          margin="normal"
-        />
-        <TextField
-          id="standard-github_url"
-          label="GitHub URL"
-          name="github_url"
-          className={classes.textField}
-          value={this.state.github_url}
-          onChange={this.handleChange}
-          margin="normal"
-        />
-        <TextField
-          id="standard-thumbnail"
-          label="Thumbnail"
-          name="thumbnail"
-          className={classes.textField}
-          value={this.state.thumbnail}
-          onChange={this.handleChange}
-          margin="normal"
-        />
-        <TextField
-          id="date"
-          label="Date Completed"
-          type="date"
-          name="date_completed"
-          defaultValue="2017-05-24"
-          value={this.state.date_completed}
-          onChange={this.handleChange}
-          className={classes.textField}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-        <FormControl className={classes.formControl}>
-          <InputLabel shrink htmlFor="tag-label-placeholder">
-            Tag
-          </InputLabel>
-          <Select
-            value={this.state.tag_id}
-            onChange={this.handleChange}
-            input={<Input name="tag_id" id="tag-label-placeholder" />}
-            displayEmpty
-            name="tag_id"
-            className={classes.selectEmpty}
             required
-          >
-            {tagsHtml}
-          </Select>
-        </FormControl>
-        <Button type="submit" variant="contained" color="primary" className={classes.button}>
-          SUBMIT
+          />
+          <TextField
+            id="standard-description"
+            label="Description"
+            name="description"
+            className={classes.textField}
+            value={this.state.description}
+            onChange={this.handleChange}
+            margin="normal"
+            required
+          />
+          <TextField
+            id="standard-website_url"
+            label="Website URL"
+            name="website_url"
+            className={classes.textField}
+            value={this.state.website_url}
+            onChange={this.handleChange}
+            margin="normal"
+          />
+          <TextField
+            id="standard-github_url"
+            label="GitHub URL"
+            name="github_url"
+            className={classes.textField}
+            value={this.state.github_url}
+            onChange={this.handleChange}
+            margin="normal"
+          />
+          <TextField
+            id="standard-thumbnail"
+            label="Thumbnail"
+            name="thumbnail"
+            className={classes.textField}
+            value={this.state.thumbnail}
+            onChange={this.handleChange}
+            margin="normal"
+          />
+          <TextField
+            id="date"
+            label="Date Completed"
+            type="date"
+            name="date_completed"
+            value={this.state.date_completed}
+            onChange={this.handleChange}
+            className={classes.textField}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+          <FormControl className={classes.formControl}>
+            <InputLabel shrink htmlFor="tag-label-placeholder">
+              Tag
+          </InputLabel>
+            <Select
+              value={this.state.tag_id}
+              onChange={this.handleChange}
+              input={<Input name="tag_id" id="tag-label-placeholder" />}
+              displayEmpty
+              name="tag_id"
+              className={classes.selectEmpty}
+              required
+            >
+              {tagsHtml}
+            </Select>
+          </FormControl>
+          <Button type="submit" variant="contained" color="primary" className={classes.button}>
+            SUBMIT
           </Button>
-      </form>
+        </form>
+        <AdminSnackbar />
+      </div>
     );
   }
 }
