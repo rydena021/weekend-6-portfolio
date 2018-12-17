@@ -117,7 +117,19 @@ class AdminForm extends React.Component {
           onChange={this.handleChange}
           margin="normal"
         />
-        <input required type="date" onChange={this.handleChange} name="date_completed" />
+        <TextField
+          id="date"
+          label="Date Completed"
+          type="date"
+          name="date_completed"
+          defaultValue="2017-05-24"
+          value={this.state.date_completed}
+          onChange={this.handleChange}
+          className={classes.textField}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
         <FormControl className={classes.formControl}>
           <InputLabel shrink htmlFor="tag-label-placeholder">
             Tag
