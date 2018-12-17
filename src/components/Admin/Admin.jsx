@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AdminHeader from './AdminHeader';
-import AdminForm from './AdminForm';
+import AdminProjectForm from './AdminProjectForm';
+import AdminTagForm from './AdminTagForm';
 import AdminList from './AdminList';
 
 class Admin extends Component {
@@ -8,7 +9,8 @@ class Admin extends Component {
     return (
       <div>
         <AdminHeader />
-        <AdminForm />
+        <AdminProjectForm />
+        <AdminTagForm />
         <AdminList/>
       </div>
     );

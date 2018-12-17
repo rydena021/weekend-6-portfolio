@@ -73,6 +73,7 @@ class AdminForm extends React.Component {
 
     return (
       <div>
+        <h1>Add New Project</h1>
         <form onSubmit={this.addNewProject} className={classes.root} autoComplete="off">
           <TextField
             id="standard-name"

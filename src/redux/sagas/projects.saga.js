@@ -10,6 +10,15 @@ function* fetchTags() {
   }
 }
 
+function* addTag(action) {
+  try {
+    yield call(axios.post, '/api/tag', action.payload);
+    yield dispatch({ type: 'FETCH_TAGS' });
+  } catch (error) {
+    console.log('error: ', error);
+  }
+}
+
 function* addProject(action) {
   try {
     yield call(axios.post, '/api/project', action.payload);
@@ -40,6 +49,7 @@ function* fetchProjects() {
 // Create the rootSaga generator function
 function* rootSaga() {
   yield takeEvery('FETCH_TAGS', fetchTags);
+  yield takeEvery('ADD_TAG', addTag);
   yield takeEvery('ADD_PROJECT', addProject);
   yield takeEvery('FETCH_PROJECTS', fetchProjects);
   yield takeEvery('DELETE_PROJECT', deleteProject);
