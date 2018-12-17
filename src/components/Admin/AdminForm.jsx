@@ -10,8 +10,6 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
-
-
 const styles = theme => ({
   root: {
     display: 'flex',
@@ -137,7 +135,7 @@ class AdminForm extends React.Component {
           </Select>
         </FormControl>
         <Button type="submit" variant="contained" color="primary" className={classes.button}>
-          ADD
+          SUBMIT
           </Button>
       </form>
     );
