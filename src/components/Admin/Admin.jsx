@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 class Admin extends Component {
 
   componentDidMount() {
-    
+    this.props.dispatch({ type: 'HIDE_SNACK' })
   }
   render() {
     return (
