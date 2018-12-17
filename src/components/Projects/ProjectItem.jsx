@@ -25,37 +25,39 @@ class ProjectItem extends Component {
     const { classes } = this.props;
     let project = this.props.project;
     return (
-      <Card className={classes.card}>
-        <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image={project.thumbnail}
-            title={project.name}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {project.name}
+      <div className="card-item">
+        <Card className={classes.card}>
+          <CardActionArea>
+            <CardMedia
+              className={classes.media}
+              image={project.thumbnail}
+              title={project.name}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                {project.name}
+              </Typography>
+              <Typography component="h5">
+                <em>{project.release_date}</em>
+              </Typography>
+              <Typography component="p">
+                {project.description}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            <Button size="small" color="primary" target="_blank" href={project.github_url}>
+              Github
+            </Button>
+            <Button size="small" color="primary" target="_blank" href={project.website_url}>
+              Website
+            </Button>
+            <Typography className="tag-item" component="p">
+              {project.tag_name}
             </Typography>
-            <Typography component="p">
-              {project.description}
-            </Typography>
-            <Typography component="p">
-              {project.date_completed}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary" target="_blank" href={project.github_url}>
-            Github
-        </Button>
-          <Button size="small" color="primary" target="_blank" href={project.website_url}>
-            Website
-        </Button>
-          <Typography className="tag-item" component="p">
-            {project.tag_name}
-          </Typography>
-        </CardActions>
-      </Card>
+          </CardActions>
+        </Card>
+      </div>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProjectItem from './ProjectItem'
+import Typography from '@material-ui/core/Typography';
 
 class ProjectList extends Component {
 
@@ -14,7 +15,12 @@ class ProjectList extends Component {
     })
     return (
       <div>
-        <h1>Project List</h1>
+        <br />
+        <Typography align="center" variant="h3">
+          My Projects
+        </Typography>
+        <br />
+        <br/>
         {projectHtml}
       </div>
     );

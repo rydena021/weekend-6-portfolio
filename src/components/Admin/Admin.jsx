@@ -4,8 +4,13 @@ import AdminProjectForm from './AdminProjectForm';
 import AdminTagForm from './AdminTagForm';
 import AdminList from './AdminList';
 import AdminSnackbar from './AdminSnackbar';
+import { connect } from 'react-redux';
 
 class Admin extends Component {
+
+  componentDidMount() {
+    
+  }
   render() {
     return (
       <div>
@@ -19,4 +24,4 @@ class Admin extends Component {
   }
 }
 
-export default Admin;
+export default connect()(Admin);
