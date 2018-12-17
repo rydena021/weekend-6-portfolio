@@ -6,6 +6,7 @@ class AdminItem extends Component {
 
   handleClick = () => {
     this.props.dispatch({ type: 'DELETE_PROJECT', payload: this.props.project.id })
+    this.props.dispatch({ type: 'SHOW_DELETE_SNACK' })
   }
   render() {
     return (

@@ -48,7 +48,7 @@ class AdminForm extends React.Component {
   addNewProject = event => {
     event.preventDefault();
     this.props.dispatch({ type: 'ADD_PROJECT', payload: this.state })
-    this.props.dispatch({ type: 'SHOW_ADMIN_SNACK'})
+    this.props.dispatch({ type: 'SHOW_PROJECT_SNACK'})
     this.clearProjectFields();
   }
 
