@@ -92,7 +92,6 @@ class AdminForm extends React.Component {
             value={this.state.description}
             onChange={this.handleChange}
             margin="normal"
-            required
           />
           <TextField
             id="standard-website_url"
