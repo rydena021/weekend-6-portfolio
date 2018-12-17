@@ -60,7 +60,7 @@ class AdminTagForm extends React.Component {
         <form onSubmit={this.addNewTag} className={classes.root} autoComplete="off">
           <TextField
             id="standard-tag"
-            label="Tag"
+            label="Tag Name"
             name="tag"
             className={classes.textField}
             value={this.state.tag}
@@ -69,7 +69,7 @@ class AdminTagForm extends React.Component {
             required
           />
           <Button type="submit" variant="contained" color="primary" className={classes.button}>
-            SUBMIT
+            ADD
           </Button>
         </form>
       </div>
