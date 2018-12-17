@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
   card: {
-    maxWidth: 445,
+    maxWidth: 645,
   },
   media: {
     height: 240,
@@ -28,29 +28,29 @@ class ProjectItem extends Component {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image="images/goat_small.jpg"
+            image={project.thumbnail}
             title={project.name}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {project.name}
-          </Typography>
+            </Typography>
             <Typography component="p">
               {project.description}
-          </Typography>
+            </Typography>
             <Typography component="p">
               {project.date_completed}
             </Typography>
             <Typography component="p">
-              {project.tag_id}
+              {project.tag_name}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary" >
+          <Button size="small" color="primary" target="_blank" href={project.github_url}>
             Github
         </Button>
-          <Button size="small" color="primary" >
+          <Button size="small" color="primary" target="_blank" href={project.website_url}>
             Website
         </Button>
         </CardActions>

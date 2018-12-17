@@ -18,4 +18,7 @@ CREATE TABLE "projects" (
 
 
 INSERT INTO "tags" ("name")
-VALUES ('React'), ('jQuery'), ('Node.js'), ('postgreSQL'), ('Redux'), ('HTML'), ('CSS');
+VALUES ('React'), ('jQuery'), ('Node.js'), ('postgreSQL'), ('Redux'), ('HTML'), ('CSS'), ('Ruby on Rails'), ('D3.js'), ('OAUTH');
+
+INSERT INTO "projects" ("name", "description", "thumbnail", "website_url", "github_url", "date_completed", "tag_id")
+VALUES ("Tweets from Tiny Hands", "Interactive data viz app of Donald Trump's tweets since declaring his candidacy for P.O.T.U.S. Users are able to filter through @realDonaldTrump's tweets by sentiment, device, time of day, day of week, or a range of dates.", "http://ryden-rails.herokuapp.com/assets/tiny-hands-5030420bc3507658492976513cd2ad7a035aa89f7ab816f1ed2010fd292e6486.png", "https://tweetsfromtinyhands.herokuapp.com", "https://github.com/rydena021/tweetsfromtinyhands", 2017-04-01, 10);
