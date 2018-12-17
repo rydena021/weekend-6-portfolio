@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 class AdminHeader extends Component {
   render() {
     return (
-      <Link to="/">Back to Projects</Link>
+      <div>
+        <h1>Admin</h1>
+        <Link to="/">Back to Projects</Link>
+      </div>
     );
   }
 }
