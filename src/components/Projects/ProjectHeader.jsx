@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class ProjectHeader extends Component {
   render() {
     return (
-      <h1>Project Header</h1>
+      <h1>Anders Ryden</h1>
     );
   }
 }
