@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class AdminHeader extends Component {
   render() {
     return (
-      <h1>Admin Header</h1>
+      <Link to="/">Back to Projects</Link>
     );
   }
 }

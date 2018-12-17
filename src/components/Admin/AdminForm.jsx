@@ -39,7 +39,7 @@ const emptyProjectObject = {
   website_url: '',
   github_url: '',
   date_completed: '',
-  tag_id: '',
+  tag_id: 1,
 };
 
 class AdminForm extends React.Component {
@@ -78,6 +78,7 @@ class AdminForm extends React.Component {
             value={this.state.name}
             onChange={this.handleChange}
             margin="normal"
+          required
           />
         <TextField
           id="standard-description"
@@ -87,6 +88,7 @@ class AdminForm extends React.Component {
           value={this.state.description}
           onChange={this.handleChange}
           margin="normal"
+          required
         />
         <TextField
           id="standard-website_url"
@@ -115,7 +117,7 @@ class AdminForm extends React.Component {
           onChange={this.handleChange}
           margin="normal"
         />
-        <input type="date" onChange={this.handleChange} name="date_completed" />
+        <input required type="date" onChange={this.handleChange} name="date_completed" />
         <FormControl className={classes.formControl}>
           <InputLabel shrink htmlFor="tag-label-placeholder">
             Tag
@@ -123,14 +125,12 @@ class AdminForm extends React.Component {
           <Select
             value={this.state.tag_id}
             onChange={this.handleChange}
-            input={<Input name="tag" id="tag-label-placeholder" />}
+            input={<Input name="tag_id" id="tag-label-placeholder" />}
             displayEmpty
             name="tag_id"
             className={classes.selectEmpty}
+            required
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
             {tagsHtml}
           </Select>
         </FormControl>
