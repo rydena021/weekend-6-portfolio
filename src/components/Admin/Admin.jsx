@@ -3,6 +3,7 @@ import AdminHeader from './AdminHeader';
 import AdminProjectForm from './AdminProjectForm';
 import AdminTagForm from './AdminTagForm';
 import AdminList from './AdminList';
+import AdminSnackbar from './AdminSnackbar';
 
 class Admin extends Component {
   render() {
@@ -12,6 +13,7 @@ class Admin extends Component {
         <AdminProjectForm />
         <AdminTagForm />
         <AdminList/>
+        <AdminSnackbar />
       </div>
     );
   }

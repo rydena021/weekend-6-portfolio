@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 class AdminItem extends Component {
 
@@ -10,7 +11,11 @@ class AdminItem extends Component {
     return (
       <tr>
         <td>{this.props.project.name}</td>
-        <td><button onClick={this.handleClick}>DELETE</button></td>
+        <td>
+          <Button size="small" color="secondary" onClick={this.handleClick}>
+            Delete
+          </Button>
+        </td>
       </tr>
     );
   }
