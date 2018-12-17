@@ -24,6 +24,22 @@ class ProjectItem extends Component {
   render() {
     const { classes } = this.props;
     let project = this.props.project;
+
+    let github;
+    if (project.github_url) {
+      github =
+        <Button size="small" color="primary" target="_blank" href={project.github_url}>
+          Github
+        </Button>
+    }
+    let website;
+    if (project.website_url) {
+      website =
+        <Button size="small" color="primary" target="_blank" href={project.website_url}>
+          Website
+        </Button>
+    }
+
     return (
       <div className="card-item">
         <Card className={classes.card}>
@@ -46,12 +62,8 @@ class ProjectItem extends Component {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary" target="_blank" href={project.github_url}>
-              Github
-            </Button>
-            <Button size="small" color="primary" target="_blank" href={project.website_url}>
-              Website
-            </Button>
+            {github}
+            {website}
             <Typography className="tag-item" component="p">
               {project.tag_name}
             </Typography>
