@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const newProject = req.body;
   const queryText = `INSERT INTO projects ("name", "description", "thumbnail", "website_url", "github_url", "date_completed", "tag_id")
-                    VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+                    VALUES ($1, $2, $3, $4, $5, $6, $7);`;
   const queryValues = [
     newProject.name,
     newProject.description,
