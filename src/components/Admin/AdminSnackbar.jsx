@@ -18,7 +18,7 @@ class SimpleSnackbar extends React.Component {
     if (reason === 'clickaway') {
       return;
     }
-    this.props.dispatch( {type: 'HIDE_ADMIN_SNACK'});
+    this.props.dispatch( {type: 'HIDE_SNACK'});
   };
 
   render() {
@@ -30,13 +30,13 @@ class SimpleSnackbar extends React.Component {
             vertical: 'bottom',
             horizontal: 'left',
           }}
-          open={this.props.snackbars}
+          open={this.props.snackbars.open}
           autoHideDuration={6000}
           onClose={this.handleClose}
           ContentProps={{
             'aria-describedby': 'message-id',
           }}
-          message={<span id="message-id">Project Added</span>}
+          message={<span id="message-id">{this.props.snackbars.message}</span>}
           action={[
             <IconButton
               key="close"

@@ -35,6 +35,7 @@ class AdminTagForm extends React.Component {
   addNewTag = event => {
     event.preventDefault();
     this.props.dispatch({ type: 'ADD_TAG', payload: this.state })
+    this.props.dispatch({ type: 'SHOW_TAG_SNACK' })
     this.clearFields();
   }
 
